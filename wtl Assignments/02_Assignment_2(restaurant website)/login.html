@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login | Zaika</title>
+    <link rel="stylesheet" href="CSS/navbar.css" />
+    <link rel="stylesheet" href="CSS/External.css" />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <h1 class="brand-title">Zaika</h1>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+      <label
+        for="nav-toggle"
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="HTML/Menu.html">Menu</a></li>
+        <li><a href="HTML/reservation.html">Reservations</a></li>
+        <li><a href="HTML/contact.html">Contact</a></li>
+        <li><a href="validation.html">Validation</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+
+    <main
+      class="auth-main"
+      style="padding: 2rem; max-width: 520px; margin: 0 auto"
+    >
+      <h2>Login</h2>
+      <form onsubmit="return gmailLoginLocal();">
+        <div id="authMsg" aria-live="polite" style="margin-bottom: 12px"></div>
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" required />
+
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" required />
+
+        <button type="submit">Login</button>
+      </form>
+    </main>
+
+    <script src="validate.js"></script>
+    <script>
+      function showMsg(msg, type = "error") {
+        const el = document.getElementById("authMsg");
+        el.textContent = msg;
+        el.style.padding = "10px";
+        el.style.borderRadius = "4px";
+        el.style.marginTop = "4px";
+        if (type === "success") {
+          el.style.background = "#d4edda";
+          el.style.color = "#155724";
+          el.style.border = "1px solid #c3e6cb";
+        } else {
+          el.style.background = "#f8d7da";
+          el.style.color = "#721c24";
+          el.style.border = "1px solid #f5c6cb";
+        }
+      }
+
+      function gmailLoginLocal() {
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value || "";
+
+        if (!email) {
+          showMsg("Email is required.", "error");
+          document.getElementById("loginEmail").focus();
+          return false;
+        }
+        if (!email.toLowerCase().endsWith("@gmail.com")) {
+          showMsg("Please use a Gmail address (example@gmail.com).", "error");
+          document.getElementById("loginEmail").focus();
+          return false;
+        }
+
+        if (password.length < 8) {
+          showMsg("Password must be at least 8 characters long.", "error");
+          document.getElementById("loginPassword").focus();
+          return false;
+        }
+
+        const hasUpper = /[A-Z]/.test(password);
+        const hasLower = /[a-z]/.test(password);
+        const hasNumber = /[0-9]/.test(password);
+        const hasSpecial = /[^A-Za-z0-9]/.test(password);
+        if (!hasUpper || !hasLower || !hasNumber || !hasSpecial) {
+          showMsg(
+            "Password must contain one uppercase, one lowercase, one number, and one special character.",
+            "error",
+          );
+          document.getElementById("loginPassword").focus();
+          return false;
+        }
+
+        // passed local validation — mark logged in and show success message
+        localStorage.setItem("zaikaLoggedIn", "true");
+        showMsg("Login successful. Redirecting…", "success");
+        setTimeout(() => (window.location.href = "index.html"), 1100);
+        return false;
+      }
+    </script>
+  </body>
+</html>

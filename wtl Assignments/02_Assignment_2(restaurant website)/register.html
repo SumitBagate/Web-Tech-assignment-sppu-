@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register | Zaika</title>
+    <link rel="stylesheet" href="CSS/navbar.css" />
+    <link rel="stylesheet" href="CSS/External.css" />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <h1 class="brand-title">Zaika</h1>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+      <label
+        for="nav-toggle"
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="HTML/Menu.html">Menu</a></li>
+        <li><a href="HTML/reservation.html">Reservations</a></li>
+        <li><a href="HTML/contact.html">Contact</a></li>
+        <li><a href="validation.html">Validation</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+
+    <main
+      class="auth-main"
+      style="padding: 2rem; max-width: 520px; margin: 0 auto"
+    >
+      <h2>Register</h2>
+      <form onsubmit="return gmailRegisterLocal();">
+        <div id="authMsg" aria-live="polite" style="margin-bottom: 12px"></div>
+        <label for="regName">Name</label>
+        <input type="text" id="regName" required />
+
+        <label for="regEmail">Email</label>
+        <input type="email" id="regEmail" required />
+
+        <label for="regPassword">Password</label>
+        <input type="password" id="regPassword" required />
+
+        <button type="submit">Register</button>
+      </form>
+    </main>
+
+    <script src="validate.js"></script>
+    <script>
+      function showMsg(msg, type = "error") {
+        const el = document.getElementById("authMsg");
+        el.textContent = msg;
+        el.style.padding = "10px";
+        el.style.borderRadius = "4px";
+        el.style.marginTop = "4px";
+        if (type === "success") {
+          el.style.background = "#d4edda";
+          el.style.color = "#155724";
+          el.style.border = "1px solid #c3e6cb";
+        } else {
+          el.style.background = "#f8d7da";
+          el.style.color = "#721c24";
+          el.style.border = "1px solid #f5c6cb";
+        }
+      }
+
+      function gmailRegisterLocal() {
+        const name = document.getElementById("regName").value.trim();
+        const email = document.getElementById("regEmail").value.trim();
+        const password = document.getElementById("regPassword").value || "";
+
+        if (!name) {
+          showMsg("Name is required.", "error");
+          document.getElementById("regName").focus();
+          return false;
+        }
+        if (name.length < 3 || !/^[A-Za-z ]+$/.test(name)) {
+          showMsg(
+            "Name must be at least 3 letters and contain only alphabets.",
+            "error",
+          );
+          document.getElementById("regName").focus();
+          return false;
+        }
+
+        if (!email) {
+          showMsg("Email is required.", "error");
+          document.getElementById("regEmail").focus();
+          return false;
+        }
+        if (!email.toLowerCase().endsWith("@gmail.com")) {
+          showMsg("Please use a Gmail address (example@gmail.com).", "error");
+          document.getElementById("regEmail").focus();
+          return false;
+        }
+
+        if (password.length < 8) {
+          showMsg("Password must be at least 8 characters long.", "error");
+          document.getElementById("regPassword").focus();
+          return false;
+        }
+
+        const hasUpper = /[A-Z]/.test(password);
+        const hasLower = /[a-z]/.test(password);
+        const hasNumber = /[0-9]/.test(password);
+        const hasSpecial = /[^A-Za-z0-9]/.test(password);
+        if (!hasUpper || !hasLower || !hasNumber || !hasSpecial) {
+          showMsg(
+            "Password must contain one uppercase, one lowercase, one number, and one special character.",
+            "error",
+          );
+          document.getElementById("regPassword").focus();
+          return false;
+        }
+
+        localStorage.setItem("zaikaLoggedIn", "true");
+        showMsg("Registration successful. Redirecting…", "success");
+        setTimeout(() => (window.location.href = "index.html"), 1100);
+        return false;
+      }
+    </script>
+  </body>
+</html>

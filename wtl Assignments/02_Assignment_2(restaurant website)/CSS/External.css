@@ -1,0 +1,39 @@
+/* External CSS for specific elements */
+
+.tagline {
+    font-style: italic;
+    color: #f0e68c;
+    /* Khaki color for contrast */
+}
+
+/* Specific styling for the form input fields */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Important for padding/border not affecting width */
+}
+
+form input[type="submit"] {
+    background-color: #5C1F0F;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #A93E2B;
+}
+
+/* Styling for iframe section */
+iframe {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

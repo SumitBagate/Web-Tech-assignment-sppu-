@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Table Reservation | Indian Dinner</title>
+    <link rel="stylesheet" href="../CSS/navbar.css" />
+    <link rel="stylesheet" href="../CSS/reservation.css" />
+  </head>
+
+  <body>
+    <nav class="site-nav">
+      <h1 class="brand-title">Zaika</h1>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+      <label
+        for="nav-toggle"
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="Menu.html">Menu</a></li>
+        <li><a href="reservation.html">Reservations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="../validation.html">Validation</a></li>
+      </ul>
+    </nav>
+
+    <main class="reservation-main">
+      <section class="reservation-intro">
+        <h2>Reserve Your Table</h2>
+        <p>
+          Choose your seats, share booking details, and we will have your table
+          ready when you arrive.
+        </p>
+        <ul class="reservation-highlights">
+          <li>Instant confirmation workflow</li>
+          <li>Comfortable family seating</li>
+          <li>Special requests supported</li>
+        </ul>
+      </section>
+
+      <section class="reservation-layout">
+        <div class="card seating-card">
+          <h3>Select Your Seats</h3>
+          <div class="screen">DINING STAGE</div>
+
+          <div class="seats">
+            <div class="row">
+              <span class="seat">A1</span>
+              <span class="seat">A2</span>
+              <span class="seat">A3</span>
+              <span class="seat">A4</span>
+              <span class="seat">A5</span>
+            </div>
+
+            <div class="row">
+              <span class="seat">B1</span>
+              <span class="seat">B2</span>
+              <span class="seat">B3</span>
+              <span class="seat">B4</span>
+              <span class="seat">B5</span>
+            </div>
+
+            <div class="row">
+              <span class="seat">C1</span>
+              <span class="seat">C2</span>
+              <span class="seat">C3</span>
+              <span class="seat">C4</span>
+              <span class="seat">C5</span>
+            </div>
+          </div>
+
+          <p class="selected-label">Selected Seats</p>
+          <p id="selectedSeats" class="selected-seats">None</p>
+        </div>
+
+        <div class="card form-card">
+          <h3>Reservation Details</h3>
+          <form>
+            <label for="name">Name</label>
+            <input id="name" type="text" required />
+
+            <label for="mobile">Mobile</label>
+            <input id="mobile" type="tel" required />
+
+            <label for="date">Date</label>
+            <input id="date" type="date" required />
+
+            <label for="time">Time</label>
+            <select id="time" required>
+              <option value="">Select time slot</option>
+              <option>12:30 PM</option>
+              <option>2:00 PM</option>
+              <option>7:00 PM</option>
+              <option>8:30 PM</option>
+            </select>
+
+            <label for="guests">Guests</label>
+            <select id="guests" required>
+              <option value="">No. of guests</option>
+              <option>2 Guests</option>
+              <option>4 Guests</option>
+              <option>6 Guests</option>
+              <option>8+ Guests</option>
+            </select>
+
+            <label for="occasion">Occasion</label>
+            <input
+              id="occasion"
+              type="text"
+              placeholder="Birthday, anniversary, etc."
+            />
+
+            <input
+              type="submit"
+              id="reserveSubmit"
+              value="Confirm Reservation"
+            />
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2026 Zaika Restaurant</footer>
+
+    <script>
+      const seats = document.querySelectorAll(".seat");
+      const selectedSeatsText = document.getElementById("selectedSeats");
+      let selectedSeats = [];
+
+      seats.forEach((seat) => {
+        seat.addEventListener("click", () => {
+          seat.classList.toggle("selected");
+          const seatNumber = seat.innerText;
+
+          if (selectedSeats.includes(seatNumber)) {
+            selectedSeats = selectedSeats.filter((s) => s !== seatNumber);
+          } else {
+            selectedSeats.push(seatNumber);
+          }
+
+          selectedSeatsText.innerText =
+            selectedSeats.length > 0 ? selectedSeats.join(", ") : "None";
+        });
+      });
+    </script>
+
+    <script>
+      // Require login to confirm reservation
+      (function () {
+        const reserveBtn = document.getElementById("reserveSubmit");
+        const logged = localStorage.getItem("zaikaLoggedIn") === "true";
+        if (!logged) {
+          const notice = document.createElement("div");
+          notice.style.background = "#fff3cd";
+          notice.style.border = "1px solid #ffeeba";
+          notice.style.padding = "12px";
+          notice.style.margin = "12px 0";
+          notice.textContent =
+            "Please login or register before confirming a reservation.";
+          const formCard = document.querySelector(".form-card");
+          formCard.insertBefore(notice, formCard.firstChild);
+          if (reserveBtn) reserveBtn.disabled = true;
+        }
+      })();
+    </script>
+  </body>
+</html>

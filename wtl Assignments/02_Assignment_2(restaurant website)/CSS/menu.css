@@ -1,0 +1,157 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  background-color: #f6efe8;
+  color: #44231a;
+}
+
+.menu-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 20px 40px;
+}
+
+.menu-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  background: linear-gradient(135deg, #fff4e8, #f8dfcd);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 24px rgba(66, 31, 20, 0.12);
+}
+
+.menu-hero h2 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  color: #5c1f0f;
+}
+
+.menu-hero p {
+  margin: 0;
+}
+
+.menu-hero img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.menu-tags {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.menu-tags span {
+  background-color: #8b3b27;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+}
+
+.menu-category {
+  margin-top: 28px;
+}
+
+.menu-category h3 {
+  color: #6b2e1f;
+  border-bottom: 2px solid #8b3b27;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.menu-item {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(66, 31, 20, 0.1);
+}
+
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-item-content {
+  padding: 14px;
+}
+
+.menu-item h4 {
+  margin: 0;
+  color: #5c1f0f;
+}
+
+.menu-item p {
+  margin: 8px 0 10px;
+  font-size: 0.95rem;
+}
+
+.menu-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: 700;
+  color: #a93e2b;
+}
+
+.type {
+  font-size: 0.8rem;
+  background: #f9e1d4;
+  color: #7a2f1f;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+@media (max-width: 900px) {
+  .menu-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-main {
+    padding: 14px 14px 28px;
+  }
+
+  .menu-hero {
+    padding: 18px;
+  }
+
+  .menu-hero h2 {
+    font-size: 1.65rem;
+  }
+
+  .menu-hero img {
+    height: 220px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}

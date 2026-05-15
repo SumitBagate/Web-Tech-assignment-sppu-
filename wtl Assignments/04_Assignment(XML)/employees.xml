@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="employees.xsl"?>
+<!DOCTYPE employees SYSTEM "employees.dtd">
+
+<employees>
+ 
+    <employee>
+        <name>Rahul Patil</name>
+        <department>IT</department>
+        <designation>Software Engineer</designation>
+        <salary>60000</salary>
+        <joiningYear>2020</joiningYear>
+        <email>rahul@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Priya Sharma</name>
+        <department>HR</department>
+        <designation>HR Manager</designation>
+        <salary>55000</salary>
+        <joiningYear>2019</joiningYear>
+        <email>priya@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Amit Kulkarni</name>
+        <department>Finance</department>
+        <designation>Accountant</designation>
+        <salary>50000</salary>
+        <joiningYear>2018</joiningYear>
+        <email>amit@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Sneha Joshi</name>
+        <department>Marketing</department>
+        <designation>Marketing Executive</designation>
+        <salary>48000</salary>
+        <joiningYear>2021</joiningYear>
+        <email>sneha@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Rohan Deshpande</name>
+        <department>IT</department>
+        <designation>Web Developer</designation>
+        <salary>52000</salary>
+        <joiningYear>2020</joiningYear>
+        <email>rohan@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Anjali Mehta</name>
+        <department>Sales</department>
+        <designation>Sales Manager</designation>
+        <salary>57000</salary>
+        <joiningYear>2017</joiningYear>
+        <email>anjali@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Vikas Gupta</name>
+        <department>Finance</department>
+        <designation>Financial Analyst</designation>
+        <salary>53000</salary>
+        <joiningYear>2019</joiningYear>
+        <email>vikas@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Pooja Nair</name>
+        <department>HR</department>
+        <designation>Recruiter</designation>
+        <salary>47000</salary>
+        <joiningYear>2022</joiningYear>
+        <email>pooja@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Karan Singh</name>
+        <department>IT</department>
+        <designation>System Administrator</designation>
+        <salary>54000</salary>
+        <joiningYear>2018</joiningYear>
+        <email>karan@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Neha Kapoor</name>
+        <department>Marketing</department>
+        <designation>Content Strategist</designation>
+        <salary>49000</salary>
+        <joiningYear>2021</joiningYear>
+        <email>neha@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Arjun Verma</name>
+        <department>IT</department>
+        <designation>Backend Developer</designation>
+        <salary>61000</salary>
+        <joiningYear>2022</joiningYear>
+        <email>arjun@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Meera Iyer</name>
+        <department>HR</department>
+        <designation>HR Executive</designation>
+        <salary>46000</salary>
+        <joiningYear>2023</joiningYear>
+        <email>meera@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Nikhil Rao</name>
+        <department>Finance</department>
+        <designation>Senior Accountant</designation>
+        <salary>58000</salary>
+        <joiningYear>2017</joiningYear>
+        <email>nikhil@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Kavya Menon</name>
+        <department>Marketing</department>
+        <designation>SEO Specialist</designation>
+        <salary>50000</salary>
+        <joiningYear>2020</joiningYear>
+        <email>kavya@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Siddharth Jain</name>
+        <department>Sales</department>
+        <designation>Sales Executive</designation>
+        <salary>51000</salary>
+        <joiningYear>2021</joiningYear>
+        <email>siddharth@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Tanvi Bhosale</name>
+        <department>IT</department>
+        <designation>Frontend Developer</designation>
+        <salary>56000</salary>
+        <joiningYear>2019</joiningYear>
+        <email>tanvi@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Yash Malhotra</name>
+        <department>Operations</department>
+        <designation>Operations Analyst</designation>
+        <salary>52000</salary>
+        <joiningYear>2018</joiningYear>
+        <email>yash@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Ritika Chavan</name>
+        <department>Support</department>
+        <designation>Customer Support Lead</designation>
+        <salary>48000</salary>
+        <joiningYear>2022</joiningYear>
+        <email>ritika@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Devansh Arora</name>
+        <department>IT</department>
+        <designation>DevOps Engineer</designation>
+        <salary>63000</salary>
+        <joiningYear>2019</joiningYear>
+        <email>devansh@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Ishita Kulshreshtha</name>
+        <department>Legal</department>
+        <designation>Legal Advisor</designation>
+        <salary>65000</salary>
+        <joiningYear>2016</joiningYear>
+        <email>ishita@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Harshad Pawar</name>
+        <department>Finance</department>
+        <designation>Payroll Specialist</designation>
+        <salary>47000</salary>
+        <joiningYear>2023</joiningYear>
+        <email>harshad@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Sonal Tripathi</name>
+        <department>HR</department>
+        <designation>Talent Acquisition Lead</designation>
+        <salary>59000</salary>
+        <joiningYear>2018</joiningYear>
+        <email>sonal@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Manav Sethi</name>
+        <department>Marketing</department>
+        <designation>Brand Manager</designation>
+        <salary>62000</salary>
+        <joiningYear>2017</joiningYear>
+        <email>manav@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Prachi Naidu</name>
+        <department>Sales</department>
+        <designation>Regional Sales Manager</designation>
+        <salary>68000</salary>
+        <joiningYear>2015</joiningYear>
+        <email>prachi@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Omkar Kadam</name>
+        <department>IT</department>
+        <designation>QA Engineer</designation>
+        <salary>53000</salary>
+        <joiningYear>2020</joiningYear>
+        <email>omkar@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Shreya Dutta</name>
+        <department>Support</department>
+        <designation>Support Engineer</designation>
+        <salary>45000</salary>
+        <joiningYear>2024</joiningYear>
+        <email>shreya@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Aditya Bendre</name>
+        <department>Operations</department>
+        <designation>Supply Chain Coordinator</designation>
+        <salary>51000</salary>
+        <joiningYear>2021</joiningYear>
+        <email>aditya@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Bhavna Rajput</name>
+        <department>Legal</department>
+        <designation>Compliance Officer</designation>
+        <salary>60000</salary>
+        <joiningYear>2019</joiningYear>
+        <email>bhavna@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Gaurav Tiwari</name>
+        <department>IT</department>
+        <designation>Data Engineer</designation>
+        <salary>64000</salary>
+        <joiningYear>2018</joiningYear>
+        <email>gaurav@company.com</email>
+    </employee>
+
+    <employee>
+        <name>Naina Fernandes</name>
+        <department>Finance</department>
+        <designation>Budget Analyst</designation>
+        <salary>56000</salary>
+        <joiningYear>2022</joiningYear>
+        <email>naina@company.com</email>
+    </employee>
+
+</employees>

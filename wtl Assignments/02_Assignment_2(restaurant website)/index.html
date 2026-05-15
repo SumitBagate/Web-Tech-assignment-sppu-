@@ -1,0 +1,595 @@
+<!-- Implement a web page index.htm for any client website (e.g., a restaurant
+website project) using following:
+a. HTML syntax: heading tags, basic tags and attributes, frames, tables,
+images, lists, links for text and images, forms etc.
+b. Use of Internal CSS, Inline CSS, External CSS -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Zaika</title>
+
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f6efe8;
+        color: #44231a;
+        line-height: 1.6;
+      }
+
+      header {
+        color: #44231a;
+        text-align: center;
+        padding: 18px 20px 8px;
+      }
+
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
+      }
+
+      .section-heading {
+        color: #6b2e1f;
+        border-bottom: 2px solid #8b3b27;
+        padding-bottom: 10px;
+        margin-top: 34px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 28px;
+        align-items: center;
+        background: linear-gradient(135deg, #fff4e8, #f8dfcd);
+        border-radius: 18px;
+        padding: 26px;
+        box-shadow: 0 10px 24px rgba(66, 31, 20, 0.12);
+      }
+
+      .site-nav {
+        position: relative;
+        z-index: 10;
+      }
+
+      .site-nav::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: 08px;
+        background-color: #b94b30;
+        pointer-events: none;
+      }
+
+      .hero h2 {
+        margin: 0 0 8px;
+        font-size: 2.1rem;
+        color: #5c1f0f;
+      }
+
+      .hero p {
+        margin: 0 0 18px;
+      }
+
+      .hero-badges {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .hero-badges span {
+        background-color: #8b3b27;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        letter-spacing: 0.2px;
+      }
+
+      .hero img {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+
+      .dish-grid,
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .dish-card,
+      .gallery-card {
+        background-color: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 18px rgba(66, 31, 20, 0.1);
+      }
+
+      .dish-card img,
+      .gallery-card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+      }
+
+      .dish-card-content {
+        padding: 14px;
+      }
+
+      .dish-card h4 {
+        margin: 0 0 5px;
+        color: #5c1f0f;
+      }
+
+      .dish-card p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .info-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .panel {
+        background: #fff;
+        border-radius: 12px;
+        padding: 14px 16px;
+        box-shadow: 0 8px 18px rgba(66, 31, 20, 0.08);
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+
+      table {
+        width: 100%;
+        margin: 8px 0 0;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #a93e2b;
+        color: white;
+      }
+
+      ul.features-list {
+        list-style-type: square;
+        padding-left: 20px;
+      }
+
+      form {
+        margin-top: 8px;
+      }
+
+      .location-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 18px;
+      }
+      .tagline {
+        font-size: 1.9rem;
+        color: #6b2e1f;
+        margin: 0;
+        padding: 12px 20px;
+      }
+
+      .location-card h4 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #5c1f0f;
+      }
+
+      .location-points {
+        list-style: none;
+        margin: 12px 0 16px;
+        padding: 0;
+      }
+
+      .location-points li {
+        background: #fff8f3;
+        border: 1px solid #ead0c0;
+        border-radius: 8px;
+        padding: 8px 10px;
+        margin-bottom: 8px;
+      }
+
+      .map-wrap iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 280px;
+        border: 0;
+        border-radius: 10px;
+      }
+
+      .location-link {
+        display: inline-block;
+        text-decoration: none;
+        background-color: #8b3b27;
+        color: #fff;
+        padding: 9px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+
+      .location-link:hover {
+        background-color: #a93e2b;
+      }
+
+      .rating-layout {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 18px;
+      }
+
+      .rating-summary {
+        text-align: center;
+      }
+
+      .rating-score {
+        font-size: 3rem;
+        line-height: 1;
+        color: #8b3b27;
+        margin: 8px 0 4px;
+        font-weight: 700;
+      }
+
+      .rating-stars {
+        letter-spacing: 2px;
+        color: #cc8b25;
+        font-size: 1.15rem;
+      }
+
+      .rating-note {
+        margin: 8px 0 0;
+        color: #6b2e1f;
+        font-size: 0.92rem;
+      }
+
+      .review-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .review-item {
+        background: #fff8f3;
+        border: 1px solid #ead0c0;
+        border-radius: 10px;
+        padding: 10px 12px;
+      }
+
+      .review-item p {
+        margin: 0 0 8px;
+        font-size: 0.93rem;
+      }
+
+      .review-item span {
+        color: #7a5244;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero img {
+          height: 260px;
+        }
+
+        .dish-grid,
+        .gallery-grid,
+        .info-layout,
+        .location-layout,
+        .rating-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .review-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        main {
+          padding: 0 14px 28px;
+        }
+
+        .hero {
+          padding: 18px;
+        }
+
+        .hero h2 {
+          font-size: 1.7rem;
+        }
+
+        .dish-card img,
+        .gallery-card img {
+          height: 170px;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="CSS/navbar.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <nav class="site-nav">
+      <h1 class="brand-title">Zaika</h1>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+      <label
+        for="nav-toggle"
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="HTML/Menu.html">Menu</a></li>
+        <li><a href="HTML/reservation.html">Reservations</a></li>
+        <li><a href="HTML/contact.html">Contact</a></li>
+        <li><a href="validation.html">Validation</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <p class="tagline">
+        Authentic flavors, warm atmosphere, unforgettable evenings.
+      </p>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h2>Welcome to Zaika</h2>
+          <p>
+            Experience a rich Indian dining journey with handcrafted curries,
+            tandoor specials, and house-made desserts prepared fresh every day.
+          </p>
+          <div class="hero-badges">
+            <span>Live Grill</span>
+            <span>Chef Specials</span>
+            <span>Family Dining</span>
+          </div>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1100&q=80"
+          alt="Elegant restaurant dining interior"
+        />
+      </section>
+
+      <h3 class="section-heading">Signature Dishes</h3>
+
+      <section class="dish-grid">
+        <article class="dish-card">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661419883163-bb4df1c10109?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QnV0dGVyJTIwQ2hpY2tlbnxlbnwwfHwwfHx8MA%3D%3D"
+            alt="Butter chicken in a traditional bowl"
+          />
+          <div class="dish-card-content">
+            <h4>Butter Chicken</h4>
+            <p>
+              Silky tomato gravy, charred tandoori chicken, and aromatic spices.
+            </p>
+          </div>
+        </article>
+        <article class="dish-card">
+          <img
+            src="https://images.unsplash.com/photo-1666001120694-3ebe8fd207be?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFuZWVyJTIwdGlra2F8ZW58MHx8MHx8fDA%3D"
+            alt="Paneer tikka served with chutney"
+          />
+          <div class="dish-card-content">
+            <h4>Paneer Tikka</h4>
+            <p>
+              Marinated cottage cheese grilled to perfection with smoky flavor.
+            </p>
+          </div>
+        </article>
+        <article class="dish-card">
+          <img
+            src="https://images.unsplash.com/photo-1631515242808-497c3fbd3972?auto=format&fit=crop&w=900&q=80"
+            alt="Assorted Indian breads in a basket"
+          />
+          <div class="dish-card-content">
+            <h4>Fresh Bread Basket</h4>
+            <p>
+              Butter naan, garlic naan, and roti served hot from the clay oven.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <h3 class="section-heading">Our Features</h3>
+      <div class="panel">
+        <ul class="features-list">
+          <li>Award-winning chef and seasonal tasting menu</li>
+          <li>Open-kitchen experience with live grill counters</li>
+          <li>Private dining setup for birthdays and events</li>
+          <li>Curated beverages and dessert bar</li>
+        </ul>
+      </div>
+
+      <h3 class="section-heading">Customer Ratings</h3>
+      <section class="rating-layout">
+        <article class="panel rating-summary">
+          <p class="rating-score">4.7/5</p>
+          <p class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+          <p class="rating-note">Based on 1,200+ verified diner reviews</p>
+        </article>
+        <article class="panel review-list">
+          <div class="review-item">
+            <p>
+              "Best butter chicken in the city and very warm staff. Perfect for
+              family dinners."
+            </p>
+            <span>- Aditi P.</span>
+          </div>
+          <div class="review-item">
+            <p>
+              "Loved the ambiance and quick service. Reservation process was
+              smooth and easy."
+            </p>
+            <span>- Rohan M.</span>
+          </div>
+          <div class="review-item">
+            <p>
+              "Great value for money, especially the chef specials and fresh
+              breads section."
+            </p>
+            <span>- Neha S.</span>
+          </div>
+          <div class="review-item">
+            <p>
+              "Ideal place for celebrations. Team handled our group booking very
+              professionally."
+            </p>
+            <span>- Karan V.</span>
+          </div>
+        </article>
+      </section>
+
+      <h3 class="section-heading">Inside Zaika</h3>
+      <section class="gallery-grid">
+        <article class="gallery-card">
+          <img
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=80"
+            alt="Chef plating a dish"
+          />
+        </article>
+        <article class="gallery-card">
+          <img
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80"
+            alt="Restaurant table setup"
+          />
+        </article>
+        <article class="gallery-card">
+          <img
+            src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1000&q=80"
+            alt="Guests enjoying dinner"
+          />
+        </article>
+      </section>
+
+      <h3 class="section-heading">Plan Your Visit</h3>
+      <section class="info-layout">
+        <div class="panel">
+          <h4>Opening Hours</h4>
+          <table>
+            <tr>
+              <th>Day</th>
+              <th>Lunch</th>
+              <th>Dinner</th>
+            </tr>
+            <tr>
+              <td>Monday - Friday</td>
+              <td>11:30 AM - 2:30 PM</td>
+              <td>5:00 PM - 10:00 PM</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td colspan="2">4:00 PM - 11:00 PM</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td style="background-color: #ffcccc">Closed</td>
+              <td style="background-color: #ffcccc">Closed</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="panel">
+          <h4>Quick Contact</h4>
+          <form action="/submit-contact" method="post">
+            <label for="name">Name:</label><br />
+            <input type="text" id="name" name="name" required /><br /><br />
+
+            <label for="email">Email:</label><br />
+            <input type="email" id="email" name="email" required /><br /><br />
+
+            <label for="message">Message:</label><br />
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              cols="50"
+              required
+            ></textarea
+            ><br /><br />
+
+            <input type="submit" value="Send Message" />
+          </form>
+        </div>
+      </section>
+
+      <h3 class="section-heading">Our Location</h3>
+      <section class="location-layout">
+        <article class="panel location-card">
+          <h4>Visit Zaika</h4>
+          <p>
+            We are located in the heart of Pune, close to major colleges and
+            business hubs, with easy access to parking.
+          </p>
+          <ul class="location-points">
+            <li><strong>Address:</strong> FC Road, Pune, Maharashtra</li>
+            <li><strong>Dining Hours:</strong> 12:00 PM - 11:00 PM</li>
+            <li><strong>Contact:</strong> +91 98765 43210</li>
+          </ul>
+          <a
+            class="location-link"
+            href="https://maps.google.com/?q=FC+Road+Pune"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open in Google Maps</a
+          >
+        </article>
+        <article class="panel map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.576189448641!2d73.84864491744385!3d18.457542099999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eac85230ba47%3A0x871eddd0a8a0a108!2sSCTR%27S%20Pune%20Institute%20of%20Computer%20Technology!5e0!3m2!1sen!2sin!4v1770358339900!5m2!1sen!2sin"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen=""
+          ></iframe>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2026 Zaika Restaurant |
+      <a href="privacy.htm" style="color: lightgray">Privacy Policy</a>
+    </footer>
+  </body>
+</html>
